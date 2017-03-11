@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/toPromise';
 import {Injectable} from "@angular/core"
 import {Http,HttpModule,JsonpModule} from "@angular/http"
 
