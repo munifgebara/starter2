@@ -1,3 +1,4 @@
+import { Email } from './email';
 import { Component } from '@angular/core';
 import { PrincipalService } from './principal.service';
 
@@ -8,11 +9,18 @@ import { PrincipalService } from './principal.service';
 })
 export class PrincipalComponent {
 
-  mensagem:string;
+  mensagem: string;
+  emails: Email[];
 
   constructor(private principalService: PrincipalService) {
-    this.mensagem=principalService.getMessagem();
+    this.mensagem = principalService.getMessagem();
+    this.reload();
   }
-  
+
+  private reload() {
+    return this.principalService.getEmails()
+      .then(emails => this.emails = emails);
+  }
+
 
 }

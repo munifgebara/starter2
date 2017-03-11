@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
+
+import { Email } from '../principal/email';
 
 
 @Component({
   selector: 'lista',
-  template: '<h1>Lista</h1>'
+  template: `
+  <ul>
+     <li *ngFor="let email of emails">nome:{{email.nome}} email:{{email.email}}</li>
+  </ul> 
+  
+  `
 })
 export class ListaComponent {
 
-  
+    @Input() emails:Email[]; 
 
 }
