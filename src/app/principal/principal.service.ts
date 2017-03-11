@@ -37,11 +37,31 @@ getEmails() {
       .then(response => this.convert(response.json()));
   }
 
+  postEmail(email) {
+    return this.http.post(`${this.baseUrl}/email.json`, email)
+      .toPromise()
+      .then(response => this.convert(response.json()));
+  }
+
+  pathEmail(email) {
+    let codigo = email.codigo;
+    delete email.codigo;
+    return this.http.patch(`${this.baseUrl}/email/${codigo}.json`, email)
+      .toPromise();
+  }
+
+  deleteEmail(codigoEmail) {
+    console.log("Service " + codigoEmail)
+    return this.http.delete(`${this.baseUrl}/email/${codigoEmail}.json`)
+      .toPromise();
+  }
+
 
  private convert(parsedResponse) {
     return Object.keys(parsedResponse)
       .map(id => ({
         codigo: id,
+        dados:parsedResponse[id],
         nome: parsedResponse[id].nome,
         email: parsedResponse[id].email
       }))

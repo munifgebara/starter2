@@ -1,6 +1,8 @@
-<h1>Página Principal</h1>
-<p>{{mensagem}}</p>
-<lista [emails]="emails"></lista>
 
+<lista [emails]="emails" (deleta)="deletaEmail($event)"
+(seleciona)="selecionaEmail($event)"></lista>
+<formulario [pessoa]="emailSelecionado" 
+            (saida)="salvar($event)" ></formulario>
+{{mensagem}}
 
  

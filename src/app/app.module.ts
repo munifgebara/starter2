@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PrincipalService } from './principal/principal.service';
 import { PrincipalComponent} from './principal/principal.component';
 import { ListaComponent } from './lista/lista.component';
+import {FormularioComponent} from './formulario/formulario.component'
 
 
 
@@ -15,7 +16,8 @@ import { ListaComponent } from './lista/lista.component';
   declarations: [
     AppComponent,
     PrincipalComponent,
-    ListaComponent
+    ListaComponent,
+    FormularioComponent
   ],
   providers: [
     PrincipalService,
